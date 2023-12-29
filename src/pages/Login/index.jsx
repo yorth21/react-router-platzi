@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAuth } from '../../hooks/useAuth'
+import users from '../../mocks/users.json'
 
 function Login () {
   const auth = useAuth()
@@ -33,6 +34,15 @@ function Login () {
           </button>
         </div>
       </form>
+
+      <div className='mt-2'>
+        <h3 className='text-lg'>Lista usuarios (solo uso en la demo)</h3>
+        <ul>
+          {users && users.map(user => (
+            <li key={user.userName}>{user.userName}</li>
+          ))}
+        </ul>
+      </div>
     </div>
   )
 }
